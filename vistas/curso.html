@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+{% block titulo %}Cursos{% endblock %}
+{% block estilos %}
+{{parent()}}
+<link href="./vendors/DataTables-1.10.21/css/dataTables.bootstrap.min.css">
+{% endblock %}
+
+{% block class_body %}skin-red fixed{% endblock %}
+
+{% block contenido %}
+<div class="wrapper">
+    <header class="main-header">
+        <a class="logo"><b>GEOMINE</b></a>
+        <nav class="navbar navbar-static-top" role="navigation">
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Llamar el archivo para visualizar el menú superior-->
+                    {% include 'panel_sup.html' %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Barra lateral -->
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <!-- Llamar el archivo  para visualizar el menú lateral -->
+            {% include 'panel_lateral.html' %}
+        </section>
+    </aside>
+    <div class="content-wrapper" id="panel_curso">
+        <div class="row ">
+            <button id="btn_añadir_curso" class="btn btn-success btn_form">
+                <i class="fa fa-plus"> Agregar </i>
+            </button>
+        </div>
+        <div class="container">
+            <form id="form_añadir_curso" class="form-horizontal form-label-left" action=""
+            method="post">
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="datatable_curso" class="table table-striped table-bordered bulk_action" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Tiempo Duracion</th>
+                                <th>Costo</th>
+                                <th>Contenido</th>
+                                <th>Contacto</th>
+                                <th>Imagen</th>
+                                <th data-priority="1" style="width:100px; text-align:center">Acciones</th>   
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>id</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Tiempo Duracion</th>
+                                <th>Costo</th>
+                                <th>Contenido</th>
+                                <th>Contacto</th>
+                                <th>Imagen</th>
+                                <th data-priority="1" style="width:100px; text-align:center">Acciones</th> 
+                            </tr>
+                        </tfoot>
+                       <tbody>
+                        </tbody> 
+                    </table>
+                </div>
+            </div>
+        </form>
+        </div>
+        <!--Modal adicionar curso-->
+        <div class="modal fade" id="modal_adicionar_curso" tabindex="-1" role="dialog" aria-labelledby="edit"
+            aria-hidden="true" data-toggle="value">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                   <div class="box box-danger">
+                       <div class="box-header with-border">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title custom_align" id="Heading">Añadir información Curso</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Los campos con (*) son obligatorios</p>
+                        <form id="adicionar_curso" class="form-horizontal form-label-left"  method="POST" action="">
+                            <div class="form-group required" >
+                                <label class="col-sm-2 control-label"> Nombre</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="nombre_curso" name="nombre_curso"
+                                     placeholder="Nombre" required="required" >
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="col-sm-2 control-label"> Descripcion</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="descripcion_curso" name="descripcion_curso"
+                                        placeholder="Descripcion" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="col-sm-2 control-label"> Tiempo Duración</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="tiempo_curso" name="tiempo_curso"
+                                        placeholder="TiempoDuración" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group  required">
+                                <label class="col-sm-2 control-label">Costo</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="costo_curso"  name="costo_curso"
+                                    placeholder="$100.000" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group  required">
+                        <label class="col-sm-2 control-label">Contenido</label>
+                        <div class="col-sm-9">
+                            <textarea  class="form-control " type="text" id="contenido_curso" name="contenido_curso"
+                                placeholder="Escriba aqui la descripcion" rows="5" required="required"></textarea>
+                        </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="col-sm-2 control-label">Contacto</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="email" id="contacto_curso"  name="contacto_curso"
+                                     placeholder="ejemplo@admin.com" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                            <label class="col-sm-2 control-label"> Imagen </label>
+                            <div class="col-sm-8">
+                                <input type="file" class="form-control-file" id="imagen_curso" name="imagen_curso"
+                                required="required">
+                            </div>
+                            </div>
+                            <div class="modal-footer ">
+                                <button type="button" class="btn btn-danger btn_form" data-dismiss="modal">
+                                    <i class="fa fa-power-off"></i>Cancelar
+                                </button>
+                                <button id="btn_agregar_curso"  class="btn btn-warning btn_form">
+                                    <i class="fa fa-edit"></i> Aceptar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+    </div>
+</div>
+    <!--Modal editar curso -->
+    <div class="modal fade" id="modal_editar_curso" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="box box-danger">
+                    <div class="box-header with-border">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title custom_align" id="Heading">Editar datos del Curso</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="editar_curso" class="form-horizontal form-label-left" method="POST" action="">
+                        <div class="form-group required">
+                            <label class="col-sm-2 control-label"> Nombre</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="edit_nom_curso" name="edit_nom_curso"
+                                 placeholder="Nombre" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label class="col-sm-2 control-label"> Descripcion</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="edit_descripcion_curso" name="edit_descripcion_curso"
+                                    placeholder="Descripcion" required="required" >
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label class="col-sm-2 control-label"> Timepo Duración</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="edit_td_curso" name="edit_td_curso"
+                                    placeholder="Tiempo Duracion" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label class="col-sm-2 control-label">Costo</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="edit_costo_curso"  name="edit_costo_curso"
+                                required="required">
+                            </div>
+                        </div>
+                        <div class="form-group  required">
+                    <label class="col-sm-2 control-label"> Contenido</label>
+                    <div class="col-sm-9">
+                        <textarea  class="form-control " type="text" id="edit_contenido_curso" name="edit_contenido_curso"
+                            placeholder="Escriba aqui la descripcion" rows="5" required="required"></textarea>
+                    </div>
+                        </div>
+                        <div class="form-group  required">
+                            <label class="col-sm-2 control-label">Contacto</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="edit_contacto_curso"  name="edit_contacto_curso"
+                                required="required">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"> Imagen</label>
+                        <div class="col-sm-8">
+                            <input type="file" class="form-control-file" id="edit_imagen_curso" name="edit_imagen_curso">
+                        </div>
+                        <br>
+                            <img src="" id="imagen" style="width: 250px; height: 150px; margin-left:130px" >
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-danger btn_form" data-dismiss="modal">
+                                <i class="fa fa-power-off"></i>Cancelar
+                            </button>
+                            <button id="btn_modificar_curso"  class="btn btn-warning btn_form">
+                                <i class="fa fa-edit"></i> Aceptar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_elim_curso" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <form id="eliminar_curso" class="form-horizontal form-label-left"  method="POST" action="">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title custom_align" id="Heading">Eliminar Curso</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span>  Quiere eliminar 
+                        este registro?</div>
+                </div>
+
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-danger btn_form" data-dismiss="modal">
+                        <i class="fa fa-times"></i> No
+                    </button>
+                    <button id="btn_eliminar_curso" class="btn btn-warning btn_form">
+                        <i class="fa fa-check"></i> Si
+                    </button>
+                </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    {% endblock %}
+
+    {% block  plugins %}
+    {{parent()}}
+    <script src="./vendors/DataTables-1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="./vendors/DataTables-1.10.21/js/dataTables.bootstrap.min.js"></script>
+    <script src="./vistas/js/admin_curso.js"></script>
+    {% endblock %}

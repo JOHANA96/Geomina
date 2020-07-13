@@ -1,0 +1,84 @@
+{% extends "index.html" %} {% block body %} {% block contenido %}
+<div class="wrapper">
+    <div id="menu-principal" class="header-v6 header-white-transparent header-sticky" style="position: relative;">
+        <div class="header-v8 img-logo-superior" style="background-color: #aa1916;">
+            <div class="parallax-quote parallaxBg" style="padding: 30px 30px;">
+                <div class="parallax-quote-in" style="padding: 0px;">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-5">
+                            <a href="http://www.colombia.co/"><img class="header-banner" src="https://ww2.ufps.edu.co/public/imagenes/template/header/escudo_colombia.png" alt="Escudo de Colombia"></a>
+                        </div>
+
+                        <div class="col-md-2 col-ms-1 col-xs-2  pull-right">
+                            <img id="logo-geo" src="./vistas/imagenes/logomm.png " alt="Logo Geotecnia">
+
+                        </div>
+
+
+
+                        <div class="col-md-4 col-sm-4 col-xs-5 center">
+                            <a href="https://ww2.ufps.edu.co/">
+                                <img id="logo-header " src="https://ww2.ufps.edu.co/public/imagenes/template/header/logo_ufps.png  " alt="Logo UFPS">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-responsive">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="fa fa-bars"></span>
+            </button>
+            <!-- End Toggle -->
+        </div>
+        <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+            <div class="container" id="menuopc">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="./index.php" class="dropdown-toggle" data-toggle="dropdown">
+                            Inicio
+                        </a>
+                    </li>
+                    <!-- End Home -->
+                    <li class="dropdown">
+                        <a href="./ir_vista_docente.php" class="dropdown-toggle" data-toggle="dropdown">
+                            Docente
+                        </a>
+                    </li>
+                    <!-- Pages -->
+                    <li class="dropdown">
+                        <a href="./ir_vista_curso.php" class="dropdown-toggle" data-toggle="dropdown">
+                            Curso
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="ir_vista_laboratorio.php" class="dropdown-toggle" data-toggle="dropdown">
+                            Laboratorio
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="./ir_vista_infraestructura.php" class="dropdown-toggle" data-toggle="dropdown">
+                            Infraestructura
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for dato in datos.infraestructura %}
+<div class="col-sm-3 col-md-3">
+    <br><br>
+    <div class="thumbnail">
+        <a data-toggle="modal" class="open_modal" href="#" data-id="{{dato.id}}">
+            <img src="./vistas/imagenes/curso/{{dato.imagen}}" alt="Infraesructura" style="width:270px; height: 150px;">
+        </a>
+    </div>
+    <div class="caption" style="text-align: left;">
+        <p><strong>Titulo: </strong> {{dato.titulo}}</p>
+    </div>
+</div>
+{% endfor %} {% endblock %} {% endblock %}

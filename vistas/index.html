@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>GeoMine - {% block titulo %}{% endblock %}</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta name="generator" content="Codeply"> {% block estilos %}
+    <link rel="stylesheet" href="./vendors/bootstrap 3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./vendors/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="./vendors/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./vistas/css/estilo.css">
+    <link rel="icon" type="image/png" href="./vistas/imagenes/Logomm.png" /> {% endblock %}
+
+</head>
+
+<body>
+
+
+    {% block body %}
+    <div class="wrapper">
+        <div id="menu-principal" class="header-v6 header-white-transparent header-sticky" style="position: relative;">
+            <div class="header-v8 img-logo-superior" style="background-color: #aa1916;">
+                <div class="parallax-quote parallaxBg" style="padding: 30px 30px;">
+                    <div class="parallax-quote-in" style="padding: 0px;">
+                        <div class="row">
+
+                            <div class="col-md-2 col-ms-1 col-xs-2  pull-left">
+                                <a href="http://www.colombia.co/"><img class="header-banner" src="https://ww2.ufps.edu.co/public/imagenes/template/header/escudo_colombia.png" alt="Escudo de Colombia"></a>
+                            </div>
+
+                            <div class="col-md-2 col-ms-1 col-xs-2  pull-right">
+                                <img id="logo-geo" src="./vistas/imagenes/logomm.png " alt="Logo Geotecnia">
+
+                            </div>
+
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-5 center">
+                                <a href="https://ww2.ufps.edu.co/">
+                                    <img id="logo-header " src="https://ww2.ufps.edu.co/public/imagenes/template/header/logo_ufps.png  " alt="Logo UFPS">
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-responsive">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars"></span>
+                </button>
+                <!-- End Toggle -->
+            </div>
+            <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+                <div class="container" id="menuopc">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="./index.php" class="dropdown-toggle" data-toggle="dropdown">
+                                Inicio
+                            </a>
+                        </li>
+                        <!-- End Home -->
+                        <li class="dropdown">
+                            <a href="./ir_vista_docente.php" class="dropdown-toggle" data-toggle="dropdown">
+                                Docente
+                            </a>
+                        </li>
+                        <!-- Pages -->
+                        <li class="dropdown">
+                            <a href="./ir_vista_curso.php" class="dropdown-toggle" data-toggle="dropdown">
+                                Curso
+                            </a>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="./ir_vista_laboratorio.php" class="dropdown-toggle" data-toggle="dropdown">
+                                Laboratorio
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="./ir_vista_infraestructura.php" class="dropdown-toggle" data-toggle="dropdown">
+                                Infraestructura
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <img src="https://ww2.ufps.edu.co/public/imagenes/eventos/85d7927c355c4c55fbd1704102fbe01d.jpg"
+      width="500" height="150"> 
+     <img src="https://image.isu.pub/150729182932-94e7b1b459c49d841acd0fafc97fec65/jpg/page_1.jpg"
+     width="500" height="150" >
+<img src=" https://sites.google.com/site/ingenieriademinasufps/_/rsrc/1393789745888/resena-historica/Captura.JPG
+    "
+     width="500" height="150" > -->
+
+    <div class="container" id="menuslider">
+        <ul class="slider">
+            <li id="evento">
+                <img src="https://ww2.ufps.edu.co/public/imagenes/eventos/85d7927c355c4c55fbd1704102fbe01d.jpg" width="500" height="150">
+            </li>
+
+            <li id="curso">
+                <img src="https://image.isu.pub/150729182932-94e7b1b459c49d841acd0fafc97fec65/jpg/page_1.jpg" width="500" height="150">
+            </li>
+            <li id="practicas">
+                <img src=" https://sites.google.com/site/ingenieriademinasufps/_/rsrc/1393789745888/resena-historica/Captura.JPG" width="500" height="150">
+            </li>
+        </ul>
+
+        <ul class="menu">
+            <li>
+                <a href="#evento">Eventos <a/>
+    </li>
+    <li>
+        <a href="#curso"> Cursos<a/>
+    </li>
+    <li>
+        <a href="#practicas">Practicas <a/>
+    </li>
+      
+  </ul>
+
+
+</div>
+
+    <footer>
+         
+         <div class="footer-copyright py-3 text-center">
+                Copyright Todos los derechos reservados. © 2020 GEOMINE.
+            
+      </footer>
+      {% block plugins %}
+<script src="./vendors/bootstrap 3.3.2/js/bootstrap.min.js"></script>
+<script src="./vendors/jquery/jquery.min.js"></script>
+<script src="./vendors/slimScroll/jquery.slimscroll.min.js"></script>
+{% endblock %}
+
+{% endblock %}
+</body>
+</html>

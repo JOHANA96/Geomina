@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GeoMine - {% block titulo %}{% endblock %}</title>
+
+	{% block estilos %}
+	<!--Bootstrap-->
+	<link href="./vendors/bootstrap 3.3.2/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<!--Bootstrap Validator-->
+	<link href="./vendors/bootstrap 3.3.2/css/bootstrapValidator.min.css" rel="stylesheet" id="bootstrap-css">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+	<link href="./vendors/pnotify/pnotify.custom.min.css">
+	<!--AdminLTE-->
+	<link href="./vistas/css/AdminLTE.min.css" rel="stylesheet">
+	<!-- FontAwesome -->
+	<link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<!--Estilo del panel-->
+	<link href="./vistas/css/style.css" rel="stylesheet">
+	<!-- AdminLTE Skins-->
+	<link href="./vistas/css/skins/skin-red.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+     {% endblock %}	    
+     
+  </head>
+  <body class="{% block class_body %}nav-sm{% endblock %}">
+    {% block body %}
+			 <!-- body content -->
+			 {% block contenido %}{% endblock %}
+			 <!-- body content -->
+			 
+			 <!-- footer content -->
+			 <footer>
+			   <div class="pull-right">
+				{% block footer %}
+					Copyright Todos los derechos reservados. © 2020 GEOMINE.
+				{% endblock %}
+			   </div>
+			   <div class="clearfix"></div>
+			 </footer>
+			 <!-- /footer content -->	
+
+		{% block plugins %}
+		<script src="./vendors/jquery/jquery.min.js"></script>
+		<script src="./vendors/pnotify/pnotify.custom.min.js"></script>
+		<script src="./vendors/bootstrap 3.3.2/js/bootstrap.min.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+		<script src="./vendors/bootstrap 3.3.2/js/bootstrapValidator.min.js"></script>
+		<script src="./vendors/slimScroll/jquery.slimscroll.min.js"></script>
+		<script src="./vistas/js/app.js"></script>
+		<script src="./vendors/jQuery-Plugin-Loading-Overlay-with-CSS3-Animations-waitMe/waitMe.js"></script>
+		{% endblock %}
+
+		{% block javascript %}
+		{% endblock %}
+		
+	{% endblock %}
+  </body>
+</html>

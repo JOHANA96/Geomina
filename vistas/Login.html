@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GeoMi</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta name="generator" content="Codeply">
+    <link rel="stylesheet" href="../vendors/bootstrap 4.4.1/css/bootstrap.css">
+    <link rel="stylesheet" href="../vendors/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="../vendors/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/estilo.css">
+
+
+</head>
+
+<body background="imagenes/logom.jpg">
+   
+            <div class="container-fluid col-sm-3 login-box-body text-center">
+                <div class="col-16">
+                    <img src="imagenes/Logo" />
+                </div> 
+                <div class="login-box-msg">
+                    <p class="font-weight">
+                        <i class="fa fa-user icon-title"></i>
+                        Inicio de sesión
+                    </p>
+                </div>
+                <form class="col-12"  action="../verificar_usuario.php" method="POST">
+                    <div class="form-group">
+                        <input type="email" name="usuario" class="form-control" id="usuario"
+                            aria-describedby="emailHelp" placeholder="Usuario">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="contraseña" class="form-control" id="contraseña"
+                            placeholder="Contraseña" aria-describedby="passwordHelpInline">
+                    </div>
+                    <button type="submit" class="btn btn-danger  btn-block">Ingresar</button>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>
